@@ -1,11 +1,23 @@
+/**
+ * Define Global Variables
+ *
+ */
+
+//nav bar element
 const navBar = document.getElementById("navbar__list");
 
-const navBarTabs = [];
-
+//last selected tab
 let lastTab = null;
 
+//last selected section
 let lastSection = null;
 
+/**
+ * End Global Variables
+ * Begin Main Functions
+ */
+
+// build the nav
 function createNavList() {
   const fragment = document.createDocumentFragment();
 
@@ -13,8 +25,6 @@ function createNavList() {
 
   for (const i of sectionsList.reverse()) {
     const tab = createNavLink(i);
-    navBarTabs.push(tab);
-    console.log(navBarTabs);
     window.addEventListener("scroll", () => isElementSelected(i, tab));
     fragment.appendChild(tab);
   }
@@ -22,6 +32,28 @@ function createNavList() {
   navBar.appendChild(fragment);
 }
 
+// build tabs
+function createNavLink(section) {
+  const li = document.createElement("li");
+  const a = document.createElement("a");
+  a.className = "menu__link";
+  a.innerText = section.dataset.nav;
+  li.appendChild(a);
+  li.addEventListener("click", () => goToSection(section));
+  return li;
+}
+
+/**
+ * End Main Functions
+ * Begin Events
+ */
+
+// Scroll to anchor section using scrollIntoView event
+function goToSection(section) {
+  section.scrollIntoView();
+}
+
+// Toggle active section and tab function
 function isElementSelected(section, tab) {
   if (
     window.scrollY >= section.offsetTop - window.innerHeight * 0.5 &&
@@ -43,18 +75,5 @@ function isElementSelected(section, tab) {
   }
 }
 
-function createNavLink(section) {
-  const li = document.createElement("li");
-  const a = document.createElement("a");
-  a.className = "menu__link";
-  a.innerText = section.dataset.nav;
-  li.appendChild(a);
-  li.addEventListener("click", () => goToSection(section));
-  return li;
-}
-
-function goToSection(section) {
-  section.scrollIntoView();
-}
-
+// Build menu
 createNavList();
