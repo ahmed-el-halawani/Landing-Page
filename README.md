@@ -1,13 +1,19 @@
-# Landing Page Project
+# Description
 
-## Table of Contents
+    This website is a single-page which is made to training on Manipulating the DOM
 
-* [Instructions](#instructions)
+### Brief about important files in my project
 
-## Instructions
+- index.html
+    - The HTML file of the project which is build the structure of the page.
+- style.css
+    - The CSS file contains all design and animation of the project to make the page with clear design.
+- app.js
+    - This is the controller file in the project which built Navigation dynamically as an unordered list, affect in the section which be in the your view port (Making it active) and some functions too.
+- README.md
+    - My README file explain to you how to interact with the project and have some basic information.
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+#### How to run the project.
 
-To get started, open `js/app.js` and start building out the app's functionality
+    Open index.html in browser window.
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
